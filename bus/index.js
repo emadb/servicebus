@@ -1,7 +1,12 @@
 var rabbitmq = require('./rabbitmq/bus');
+var fake = require('./fake/bus');
 
-module.exports.bus = function bus (options, implOpts) {
-  return new rabbitmq.Bus(options, implOpts);
+module.exports.bus = function bus (options, implOpts, transportType) {
+  if (!transportType){
+    return new rabbitmq.Bus(options, implOpts);
+  } else {
+    return new transportType.Bus(options, implOpts)
+  }
 };
 
 var namedBuses = {};
