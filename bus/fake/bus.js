@@ -16,23 +16,23 @@ function FakeBus (options) {
 util.inherits(FakeBus, Bus);
 
 FakeBus.prototype.listen = function listen (queueName, options, callback) {
-  console.log('FakeBus.listen')
+  throw 'FakeBus.listen not implemented'
 };
 
 FakeBus.prototype.unlisten = function unlisten (queueName, options) {
-  console.log('FakeBus.unlisten')
+  throw 'FakeBus.unlisten not implemented'
 };
 
 FakeBus.prototype.destroyListener = function removeListener (queueName, options) {
-  console.log('FakeBus.destroyListener')
+  throw 'FakeBus.destroyListener not implemented'
 };
 
 FakeBus.prototype.setOptions = function (queueName, options) {
-  console.log('FakeBus.setOptions')
+  throw 'FakeBus.setOptions not implemented'
 };
 
 FakeBus.prototype.send = function send (queueName, message, options, cb) {
-  console.log('FakeBus.send')
+  throw 'FakeBus.send  not implemented'
 };
 
 FakeBus.prototype.subscribe = function subscribe (queueName, options, callback) {
@@ -56,7 +56,7 @@ FakeBus.prototype.publish = function publish (queueName, message, options, cb) {
 };
 
 FakeBus.prototype.close = function close () {
-  console.log('FakeBus.close')
+  throw 'FakeBus.close not implemented'
 };
 
 module.exports.Bus = FakeBus;

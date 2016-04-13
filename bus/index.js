@@ -5,6 +5,7 @@ module.exports.bus = function bus (options, implOpts, transportType) {
   if (!transportType){
     return new rabbitmq.Bus(options, implOpts);
   } else {
+    // TODO: probably a real factory or a builder would be better
     return new transportType.Bus(options, implOpts)
   }
 };
