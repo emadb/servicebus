@@ -1,13 +1,7 @@
 var rabbitmq = require('./rabbitmq/bus');
-var fake = require('./fake/bus');
 
-module.exports.bus = function bus (options, implOpts, transportType) {
-  if (!transportType){
-    return new rabbitmq.Bus(options, implOpts);
-  } else {
-    // TODO: probably a real factory or a builder would be better
-    return new transportType.Bus(options, implOpts)
-  }
+module.exports.bus = function bus (options, implOpts, transportType = rabbitmq) {
+  return new transportType.Bus(options, implOpts)
 };
 
 var namedBuses = {};
